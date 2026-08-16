@@ -1,0 +1,36 @@
+I need to make a simple ASP.NET 10 API
+
+The API should have endpoints to create read update and delete songs
+
+Songs have the following properties:
+
+id 
+name 
+artist 
+album 
+genre 
+duaration
+releaseDate
+
+Furthermore there should be endpoints to create read update and delete playlists
+
+Playlists have the following properties: 
+
+id 
+userId 
+playlistName 
+createdDate 
+
+There should also be endpoints to add and remove songs from playlists
+
+The database should contain a table for songs, a table for playlists, and a table for songPlaylist foreign key pairs 
+
+Use the MVC pattern, there should be a playlistRepository, songRepository, playlistService, songService, playlistController, and SongController
+
+Assume userId is a string provided by the client when sending requests just like any other property. don't implement any authentication or authorization logic 
+
+Use Postgres for the database, add code to create a new database with all required tables according to the schema and seed it with example data. Assume the database is running in a separate docker container on the same host 
+
+Add unit tests for each method using xunit and integration tests for the whole flow 
+
+Add a README containing documentation for all endpoints, database schema and tests, as well as required commands to run the api and test it on linux using dotnet run and curl 
