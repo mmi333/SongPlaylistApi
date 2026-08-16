@@ -16,13 +16,13 @@ No authentication or authorization is implemented. `userId` is an ordinary clien
 ## Schema
 
 ### songs
-`id` PK, `name`, `artist`, `album`, `genre`, `duaration` (PostgreSQL interval), `release_date`.
+`id` PK, `name`, `artist`, `album`, `genre`, `duration` (PostgreSQL interval), `release_date`.
 
 ### playlists
 `id` PK, `user_id`, `playlist_name`, `created_date`.
 
 ### songPlaylist
-Composite PK `(song_id, playlist_id)`, with foreign keys to `songs(id)` and `playlists(id)`. Deletes cascade from either parent. The API intentionally keeps the requested `duaration` spelling for compatibility.
+Composite PK `(song_id, playlist_id)`, with foreign keys to `songs(id)` and `playlists(id)`. Deletes cascade from either parent. 
 
 ## Endpoints
 
@@ -38,7 +38,7 @@ Composite PK `(song_id, playlist_id)`, with foreign keys to `songs(id)` and `pla
 
 Song JSON:
 ```json
-{"name":"Numb","artist":"Linkin Park","album":"Meteora","genre":"Rock","duaration":"00:03:05","releaseDate":"2003-03-25"}
+{"name":"Numb","artist":"Linkin Park","album":"Meteora","genre":"Rock","duration":"00:03:05","releaseDate":"2003-03-25"}
 ```
 
 ### Playlists
@@ -102,7 +102,7 @@ BASE=http://localhost:5000
 curl "$BASE/api/songs"
 curl "$BASE/api/playlists"
 
-curl -X POST "$BASE/api/songs" -H 'Content-Type: application/json' -d '{"name":"Everlong","artist":"Foo Fighters","album":"The Colour and the Shape","genre":"Rock","duaration":"00:04:10","releaseDate":"1997-05-20"}'
+curl -X POST "$BASE/api/songs" -H 'Content-Type: application/json' -d '{"name":"Everlong","artist":"Foo Fighters","album":"The Colour and the Shape","genre":"Rock","duration":"00:04:10","releaseDate":"1997-05-20"}'
 
 curl -X POST "$BASE/api/playlists" -H 'Content-Type: application/json' -d '{"userId":"user-123","playlistName":"Workout","createdDate":"2026-08-16T10:00:00Z"}'
 
@@ -110,7 +110,7 @@ curl -X POST "$BASE/api/playlists/1/songs/1"
 curl "$BASE/api/playlists/1/songs"
 curl -X DELETE "$BASE/api/playlists/1/songs/1"
 
-curl -X PUT "$BASE/api/songs/1" -H 'Content-Type: application/json' -d '{"name":"Numb (Updated)","artist":"Linkin Park","album":"Meteora","genre":"Rock","duaration":"00:03:05","releaseDate":"2003-03-25"}'
+curl -X PUT "$BASE/api/songs/1" -H 'Content-Type: application/json' -d '{"name":"Numb (Updated)","artist":"Linkin Park","album":"Meteora","genre":"Rock","duration":"00:03:05","releaseDate":"2003-03-25"}'
 
 curl -X DELETE "$BASE/api/songs/1"
 curl -X DELETE "$BASE/api/playlists/1"

@@ -5,3 +5,9 @@ obj/
 *.user
 *.suo
 TestResults/
+src/SongPlaylistApi/bin/
+src/SongPlaylistApi/obj/
+tests/SongPlaylistApi.IntegrationTests/bin/
+tests/SongPlaylistApi.IntegrationTests/obj/
+tests/SongPlaylistApi.UnitTests/obj/
+tests/SongPlaylistApi.UnitTests/bin/

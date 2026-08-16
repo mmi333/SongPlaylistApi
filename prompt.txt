@@ -9,7 +9,7 @@ name
 artist 
 album 
 genre 
-duaration
+duration
 releaseDate
 
 Furthermore there should be endpoints to create read update and delete playlists

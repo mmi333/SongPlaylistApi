@@ -1,3 +1,3 @@
-INSERT INTO songs (name,artist,album,genre,duaration,release_date) VALUES ('Numb','Linkin Park','Meteora','Rock','00:03:05','2003-03-25'),('Billie Jean','Michael Jackson','Thriller','Pop','00:04:54','1982-11-30'),('Lose Yourself','Eminem','8 Mile','Hip Hop','00:05:26','2002-10-28');
+INSERT INTO songs (name,artist,album,genre,duration,release_date) VALUES ('Numb','Linkin Park','Meteora','Rock','00:03:05','2003-03-25'),('Billie Jean','Michael Jackson','Thriller','Pop','00:04:54','1982-11-30'),('Lose Yourself','Eminem','8 Mile','Hip Hop','00:05:26','2002-10-28');
 INSERT INTO playlists (user_id,playlist_name,created_date) VALUES ('demo-user','Demo Favorites',CURRENT_TIMESTAMP);
 INSERT INTO "songPlaylist" (song_id,playlist_id) SELECT s.id,p.id FROM songs s CROSS JOIN playlists p WHERE p.playlist_name='Demo Favorites' AND s.name IN ('Numb','Billie Jean') ON CONFLICT DO NOTHING;

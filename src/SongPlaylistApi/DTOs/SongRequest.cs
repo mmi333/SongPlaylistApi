@@ -5,5 +5,5 @@ public record SongRequest(
     string Artist,
     string Album,
     string Genre,
-    TimeSpan Duaration,
+    TimeSpan Duration,
     DateOnly ReleaseDate);

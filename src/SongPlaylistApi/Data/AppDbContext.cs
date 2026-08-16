@@ -20,7 +20,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             entity.Property(x => x.Artist).HasColumnName("artist").IsRequired().HasMaxLength(200);
             entity.Property(x => x.Album).HasColumnName("album").IsRequired().HasMaxLength(200);
             entity.Property(x => x.Genre).HasColumnName("genre").IsRequired().HasMaxLength(100);
-            entity.Property(x => x.Duration).HasColumnName("duaration").IsRequired();
+            entity.Property(x => x.Duration).HasColumnName("duration").IsRequired();
             entity.Property(x => x.ReleaseDate).HasColumnName("release_date").IsRequired();
         });
 

@@ -35,12 +35,11 @@ public static class DatabaseInitializer
         if (!exists)
         {
             await using var create = connection.CreateCommand();
-            create.CommandText = $"CREATE DATABASE {QuoteIdentifier(databaseName)}";
+            create.CommandText = $"CREATE DATABASE {databaseName}";
             await create.ExecuteNonQueryAsync();
         }
     }
 
-    private static string QuoteIdentifier(string value) => """ + value.Replace(""", """") + """;
 
     private static async Task SeedAsync(AppDbContext db)
     {
@@ -53,10 +52,10 @@ public static class DatabaseInitializer
             new Song { Name="Lose Yourself", Artist="Eminem", Album="8 Mile", Genre="Hip Hop", Duration=new TimeSpan(0,5,26), ReleaseDate=new DateOnly(2002,10,28) }
         };
         db.Songs.AddRange(songs);
-        var playlist = new Playlist { UserId="demo-user", PlaylistName="Demo Favorites", CreatedDate=DateTime.UtcNow };
+        var playlist = new Playlist { UserId = "demo-user", PlaylistName = "Demo Favorites", CreatedDate = DateTime.UtcNow };
         db.Playlists.Add(playlist);
         await db.SaveChangesAsync();
-        db.SongPlaylists.AddRange(songs.Take(2).Select(s => new SongPlaylist { SongId=s.Id, PlaylistId=playlist.Id }));
+        db.SongPlaylists.AddRange(songs.Take(2).Select(s => new SongPlaylist { SongId = s.Id, PlaylistId = playlist.Id }));
         await db.SaveChangesAsync();
     }
 }

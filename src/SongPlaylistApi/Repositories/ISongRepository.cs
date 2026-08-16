@@ -1,5 +1,6 @@
 using SongPlaylistApi.Models;
 namespace SongPlaylistApi.Repositories;
+
 public interface ISongRepository
 {
     Task<List<Song>> GetAllAsync(CancellationToken ct = default);
